@@ -7,6 +7,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin = {"json:target/cucumber.json",
+                "html:target/default-html-reports",
+                "de.monochromata.cucumber.report.PrettyReports:target/cucumber"
+//                "html:target/default-html-reports" yukariya virgül koyup bunu yazinca default htm report package i geliyor.
+        }, //rapor almak icin yaziyoruz
         features = "src/test/resources/features",
         glue = "com/step_definitions",
 //        dryRun = true       //bunu yazarak kodu yazilmis olan kodlari devre disi birakip , sadece eksik olanlari verecek!!
