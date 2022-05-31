@@ -9,8 +9,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"json:target/cucumber.json",
                 "html:target/default-html-reports",
-                "de.monochromata.cucumber.report.PrettyReports:target/cucumber"
+                "de.monochromata.cucumber.report.PrettyReports:target/cucumber",
 //                "html:target/default-html-reports" yukariya virgül koyup bunu yazinca default htm report package i geliyor.
+                "rerun:target/rerun.txt" //testimizde basarisiz olan dosyalarimizi target icerisinde hatali senaryonun satirina kadar görmüs olacagiz
         }, //rapor almak icin yaziyoruz
         features = "src/test/resources/features",
         glue = "com/step_definitions",
@@ -26,7 +27,7 @@ import org.junit.runner.RunWith;
 //        tags =  "@smoke and not @wip"  //smoke calisacak ama wip ler calismayacak
 //        tags =  "@smoke and not @wip"  //Before version 5 -->{"@smoke" , "~wip"}  and not (~tilda isareti klavyeden alt+126)
 //        tags="@Developer or @AllPost or @Dashboard" //benim ilk yaptigim sekildeki etiketlerin oldugu senaryolar calisiyor!!
-        tags = "@wip"  //feature dosyasinida dosya basina koyulan etiketin bagli oldugu class daki herseyi calistirir!!
+        tags = "@Failedtest"  //feature dosyasinida dosya basina koyulan etiketin bagli oldugu class daki herseyi calistirir!!
 
 
 
