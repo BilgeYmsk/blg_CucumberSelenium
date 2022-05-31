@@ -1,18 +1,18 @@
 Feature: Account Types
 
-
+  @Failedtest
   Scenario: Teacher User
     Given the user is on the login page
     When the user logs in using "eurotech@gmail.com" and "Test12345!"
     Then the user should be able to login and see message "Eurotech"
 
-
+  @Failedtest
   Scenario: Student User
     Given the user is on the login page
     When the user logs in using "zehra@gmail.com" and "12345#"
     Then the user should be able to login and see message "zehra"
 
-
+  @Failedtest
   Scenario: Developer User
     Given the user is on the login page
     When the user logs in using "oyku@gmail.com" and "oyku123!"
