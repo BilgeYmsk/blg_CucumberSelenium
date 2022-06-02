@@ -1,23 +1,22 @@
-
 Feature: The user should be able to edit profile
 
   Background:
     Given the user is on the login page
 
+  @123
+  Scenario: edit profile
+    When the user logs in using "eurotech@gmail.com" and "Test12345!"
+    And the user navigates to "Edit Profile"
+    And the user select "status" "Instructor"
+    And the user add "company" "euroTech Study"
+    And the user add "website" "https://www.eurotechstudy.com/"
+    And the user add "location" "Germany"
+    And the user add "skills" "Java,Selenium,Cucumber,Junit,Github"
+    And the user add "githubusername" "euroTech-sdet"
+    And the user add "bio" "Sdet programme"
+    Then the user enters submit button
 
-    Scenario: edit profile
-      When the user logs in using "eurotech@gmail.com" and "Test12345!"
-      And the user navigates to "Edit Profile"
-      And the user select "status" "Instructor"
-      And the user add "company" "euroTech Study"
-      And the user add "website" "https://www.eurotechstudy.com/"
-      And the user add "location" "Germany"
-      And the user add "skills" "Java,Selenium,Cucumber,Junit,Github"
-      And the user add "githubusername" "euroTech-sdet"
-      And the user add "bio" "Sdet programme"
-      Then the user enters submit button
-
-  @edit
+  @exyz
   Scenario Outline: edit profile with scenario outline
     When the user logs in using "<email>" and "<password>"
     And the user navigates to "<add info module>"
@@ -30,7 +29,23 @@ Feature: The user should be able to edit profile
     And the user add "bio" "<bio info>"
     Then the user enters submit button
     Examples:
-    |email|password|add info module|status|company info|website info|location info|skills info|github info|bio info|
-    |eurotech@gmail.com|Test12345!|Edit Profile|Instructor|euroTech Study|https://www.eurotechstudy.com/|Germany|Java,Selenium,Cucumber,Junit,Github|euroTech-sdet|Sdet programme|
-    |zehra@gmail.com|12345#|Edit Profile|Junior Developer|euroTech Study|https://www.eurotechstudy.com/|London|Java,Selenium,Cucumber,testNg,Jira,Github|euroTech-sdet|Developer programme|
-    |sdet_blg@gmail.com|Test1234!|Edit Profile|Student or Learning|euroTech Study|https://www.eurotechstudy.com/|Dortmund|Java,Selenium,Cucumber,testNg,Jira,Github|euroTech-sdet|Sdet programme|
+      | email              | password   | add info module | status              | company info   | website info                   | location info | skills info                               | github info   | bio info            |
+      | eurotech@gmail.com | Test12345! | Edit Profile    | Instructor          | euroTech Study | https://www.eurotechstudy.com/ | Germany       | Java,Selenium,Cucumber,Junit,Github       | euroTech-sdet | Sdet programme      |
+      | zehra@gmail.com    | 12345#     | Edit Profile    | Junior Developer    | euroTech Study | https://www.eurotechstudy.com/ | London        | Java,Selenium,Cucumber,testNg,Jira,Github | euroTech-sdet | Developer programme |
+      | sdet_blg@gmail.com | Test1234!  | Edit Profile    | Student or Learning | euroTech Study | https://www.eurotechstudy.com/ | Dortmund      | Java,Selenium,Cucumber,testNg,Jira,Github | euroTech-sdet | Sdet programme      |
+
+
+  @list
+  Scenario: Verify Menu List
+    When the user logs in using "eurotech@gmail.com" and "Test12345!"
+    And the user navigates to "Edit Profile"
+    And the user verify that following menu
+      | * Select Professional Status |
+      | Developer                    |
+      | Junior Developer             |
+      | Senior Developer             |
+      | Manager                      |
+      | Student or Learning          |
+      | Instructor or Teacher        |
+      | Intern                       |
+      | Other                        |
