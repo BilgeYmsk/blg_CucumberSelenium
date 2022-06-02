@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
@@ -18,7 +19,7 @@ public class Hooks {
 
         System.out.println("----This Statement comes from BEFORE----");
         Driver.get().manage().window().maximize();
-        Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @After
