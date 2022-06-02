@@ -1,6 +1,6 @@
-
 Feature: Teacher should be able to Navigate Menu
 
+  @123
   Scenario: Navigate developer menu
     Given the user is on the login page
     When the user enters teacher credentials

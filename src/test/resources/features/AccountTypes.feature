@@ -18,7 +18,7 @@ Feature: Account Types
     When the user logs in using "oyku@gmail.com" and "oyku123!"
     Then the user should be able to login and see message "oyku"
 
-
+  @xyz
   Scenario: Mentor User
     Given the user is on the login page
     When the user logs in using "havva@outlook.com" and "Havva123!"
