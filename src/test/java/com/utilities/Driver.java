@@ -19,6 +19,7 @@ import java.net.URL;
 public class Driver {
     private Driver() {
     }
+
     // InheritableThreadLocal  --> this is like a container, bag, pool.
     // in this pool we can have separate objects for each thread
     // for each thread, in InheritableThreadLocal we can have separate object for that thread
@@ -29,7 +30,7 @@ public class Driver {
     böylece driver class i bize her bir driver icin ayri webdriver olusturuyor
     */
 
-    public static WebDriver get(){
+    public static WebDriver get() {
         //if this thread doesn't have driver - create it and add to pool
         if (driverPool.get() == null) {
 //            if we pass the driver from terminal then use that one
@@ -74,14 +75,24 @@ public class Driver {
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.setCapability("platform", Platform.ANY);
                     try {
-                        driverPool.set(new RemoteWebDriver(new URL("http://3.238.26.132:4444/wd/hub"),chromeOptions));
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
+                case "remote_firefox":
+                    FirefoxOptions firefoxOptions=new FirefoxOptions();
+                    firefoxOptions.setCapability("platform", Platform.ANY);
+                    try {
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),firefoxOptions));
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+
             }
         }
         return driverPool.get();
     }
+
     public static void closeDriver() {
         driverPool.get().quit();
         driverPool.remove();

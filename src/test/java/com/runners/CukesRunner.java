@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
 //        tags =  "@smoke and not @wip"  //smoke calisacak ama wip ler calismayacak
 //        tags =  "@smoke and not @wip"  //Before version 5 -->{"@smoke" , "~wip"}  and not (~tilda isareti klavyeden alt+126)
 //        tags="@Developer or @AllPost or @Dashboard" //benim ilk yaptigim sekildeki etiketlerin oldugu senaryolar calisiyor!!
-        tags = "@list"  //feature dosyasinida dosya basina koyulan etiketin bagli oldugu class daki herseyi calistirir!!
+        tags = "@123"  //feature dosyasinida dosya basina koyulan etiketin bagli oldugu class daki herseyi calistirir!!
 
 
 
